@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "/w2CbQeNCZ7i61gZ0Aj57higyVYr7Qz8UrxHTmYmimXBR+o90NLDRHodFz8wCZoM7x3JhlvAZawvRrZSLciBlg==",
+  "success": true,
+  "projectFilePath": "D:\\GitHub\\PixelMatching\\BlackPixelMatching\\BlackPixelMatching\\BlackPixelMatching.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vladi\\.nuget\\packages\\ghostscript\\9.2.0\\ghostscript.9.2.0.nupkg.sha512",
+    "C:\\Users\\vladi\\.nuget\\packages\\ghostscript.net\\1.2.3.1\\ghostscript.net.1.2.3.1.nupkg.sha512",
+    "C:\\Users\\vladi\\.nuget\\packages\\xpdfnet\\1.2.0\\xpdfnet.1.2.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"Ghostscript 9.2.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "Ghostscript",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"Ghostscript.NET 1.2.3.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net8.0-windows7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "Ghostscript.NET",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
+}
