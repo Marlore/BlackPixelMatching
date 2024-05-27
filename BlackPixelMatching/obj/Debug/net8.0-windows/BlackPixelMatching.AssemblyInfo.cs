@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BlackPixelMatching")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5cd0651bbd649139e6fe2c24c9d1cd0056ab9b65")]
 [assembly: System.Reflection.AssemblyProductAttribute("BlackPixelMatching")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BlackPixelMatching")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

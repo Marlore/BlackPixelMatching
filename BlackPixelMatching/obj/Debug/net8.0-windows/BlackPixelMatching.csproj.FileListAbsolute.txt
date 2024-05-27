@@ -22,3 +22,4 @@ D:\GitHub\PixelMatching\BlackPixelMatching\BlackPixelMatching\bin\Debug\net8.0-w
 D:\GitHub\PixelMatching\BlackPixelMatching\BlackPixelMatching\bin\Debug\net8.0-windows\gsdll64.dll
 D:\GitHub\PixelMatching\BlackPixelMatching\BlackPixelMatching\bin\Debug\net8.0-windows\XpdfNet.dll
 D:\GitHub\PixelMatching\BlackPixelMatching\BlackPixelMatching\obj\Debug\net8.0-windows\BlackPixelMatching.Properties.Resources.resources
+D:\GitHub\PixelMatching\BlackPixelMatching\BlackPixelMatching\obj\Debug\net8.0-windows\BlackPixelMatching.sourcelink.json

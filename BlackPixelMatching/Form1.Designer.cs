@@ -100,7 +100,7 @@
             Controls.Add(listBox1);
             Controls.Add(button1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Black Pixel Counter";
             ResumeLayout(false);
             PerformLayout();
         }

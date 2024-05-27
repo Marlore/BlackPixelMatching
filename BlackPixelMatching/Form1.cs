@@ -68,7 +68,7 @@ namespace BlackPixelMatching
             }
            
         }
-        private void RenderCounter(int from,int to, GhostscriptRasterizer rasterizer)
+        private async void RenderCounter(int from,int to, GhostscriptRasterizer rasterizer)
         {
             for (int pageNumber = from; pageNumber <= to; pageNumber++)
             {
@@ -77,8 +77,6 @@ namespace BlackPixelMatching
                 var bitmap = new Bitmap(image);
                 var count = BlackPixelCount(bitmap);
                 ConvertList.Add(pageNumber, Path.GetFileName(FilePath) + " Page:" + pageNumber + " Black pixel percent: " + (count * 100) + "%");
-                
-
             }
         }
 
@@ -95,29 +93,18 @@ namespace BlackPixelMatching
                     if (color.ToArgb() != Color.White.ToArgb())
                         blackColor++;
                 }
-
             }
             return (float)blackColor/count;
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e){}
 
-        }
-
-        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e){}
 
         private void PathExplorer_Click(object sender, EventArgs e)
         {
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-
-            // Set the file dialog to filter for graphics files.
             this.openFileDialog1.Filter = "Pdf Files|*.pdf";
-
-            // Allow the user to select multiple images.
             this.openFileDialog1.Multiselect = false;
             this.openFileDialog1.ShowDialog();
             var fileName = this.openFileDialog1.FileName;
