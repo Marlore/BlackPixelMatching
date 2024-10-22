@@ -53,7 +53,7 @@ namespace BlackPixelMatching
                         blackColor++;
                 }
             }
-            float blackPixelPercent = blackColor / count;
+            float blackPixelPercent = (float)blackColor / count;
             listBox1.Items.Add(Path.GetFileName(FilePath) + " Page:" + page + " Black pixel percent: " + (blackPixelPercent) + "%");           
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e){}
