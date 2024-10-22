@@ -8,6 +8,7 @@ namespace BlackPixelMatching
 {
     public partial class Form1 : Form
     {
+        
         string FilePath;
         Dictionary<int,string> ConvertList;
         public Form1()
@@ -17,86 +18,44 @@ namespace BlackPixelMatching
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            
-            Convert();
-            var dic =ConvertList.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
-            foreach (var item in dic)
-                listBox1.Items.Add(item.Value);
-
+            await Convert();
         }
         
-        private async void Convert()
+        private async Task Convert()
         {
-            List<Thread> tasks = new List<Thread>();
-            ConvertList = new Dictionary<int, string>();
             using (var rasterizer = new GhostscriptRasterizer())
             {
                 rasterizer.GraphicsAlphaBits = (int)GhostscriptImageDeviceAlphaBits.V_4;
                 rasterizer.TextAlphaBits = (int)GhostscriptImageDeviceAlphaBits.V_4;
                 rasterizer.Open(FilePath);
                 int pageCount = rasterizer.PageCount;
-                int PageToThread = 20;
-                int taskCount = (int)Math.Ceiling((float)pageCount / PageToThread);
-                
-                for (int i = 0; i < taskCount; i++)
+                for (int i = 1; i <= pageCount; i++)
                 {
-
-                    if ((i + 1) * PageToThread > pageCount && i * PageToThread < pageCount)
-                    {
-                        int startPage = (i * PageToThread) + 1;
-                        var thread = new Thread(()=> RenderCounter(startPage, pageCount, rasterizer));
-                        thread.Start();
-                        tasks.Add(thread);
-                    }
-
-                    else if((i + 1) * PageToThread <= pageCount)
-                    {
-                        int startPage = (i * PageToThread) + 1;
-                        int endPage = (i + 1) * PageToThread;
-                        var thread = new Thread(() => RenderCounter(startPage, endPage, rasterizer));
-                        thread.Start();
-                        tasks.Add(thread);
-                    }
+                    await RenderCounter(i, rasterizer);
                 }
-                foreach (var task in tasks)
-                {
-                    task.Join();
-                }
-
                 rasterizer.Close();
                 rasterizer.Dispose();
             }
            
         }
-        private async void RenderCounter(int from,int to, GhostscriptRasterizer rasterizer)
+        private async Task RenderCounter(int page, GhostscriptRasterizer rasterizer)
         {
-            for (int pageNumber = from; pageNumber <= to; pageNumber++)
-            {
-                var outputFormat = ImageFormat.Png;
-                var image = rasterizer.GetPage(300, pageNumber);
-                var bitmap = new Bitmap(image);
-                var count = BlackPixelCount(bitmap);
-                ConvertList.Add(pageNumber, Path.GetFileName(FilePath) + " Page:" + pageNumber + " Black pixel percent: " + (count * 100) + "%");
-            }
-        }
-
-        private float BlackPixelCount(Bitmap bmp)
-        {
+            var image = rasterizer.GetPage(300, page);
+            var bitmap = new Bitmap(image);
             int blackColor = 0;
-            int count = 0;
-            for (int x = 0; x < bmp.Width; x++)
+            int count = bitmap.Width* bitmap.Height;
+            for (int x = 0; x < bitmap.Width; x++)
             {
-                for (int y = 0; y < bmp.Height; y++)
+                for (int y = 0; y < bitmap.Height; y++)
                 {
-                    Color color = bmp.GetPixel(x, y);
-                    count++;
+                    Color color = bitmap.GetPixel(x, y);
                     if (color.ToArgb() != Color.White.ToArgb())
                         blackColor++;
                 }
             }
-            return (float)blackColor/count;
+            float blackPixelPercent = blackColor / count;
+            listBox1.Items.Add(Path.GetFileName(FilePath) + " Page:" + page + " Black pixel percent: " + (blackPixelPercent) + "%");           
         }
-
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e){}
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e){}

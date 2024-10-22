@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/w2CbQeNCZ7i61gZ0Aj57higyVYr7Qz8UrxHTmYmimXBR+o90NLDRHodFz8wCZoM7x3JhlvAZawvRrZSLciBlg==",
+  "dgSpecHash": "qXGsxn83e9s=",
   "success": true,
-  "projectFilePath": "D:\\GitHub\\PixelMatching\\BlackPixelMatching\\BlackPixelMatching\\BlackPixelMatching.csproj",
+  "projectFilePath": "D:\\GitHub\\BlackPixelMatching\\BlackPixelMatching\\BlackPixelMatching.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vladi\\.nuget\\packages\\ghostscript\\9.2.0\\ghostscript.9.2.0.nupkg.sha512",
     "C:\\Users\\vladi\\.nuget\\packages\\ghostscript.net\\1.2.3.1\\ghostscript.net.1.2.3.1.nupkg.sha512",
